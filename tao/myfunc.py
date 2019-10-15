@@ -61,3 +61,15 @@ def mrandom_mutate(dna,mutation_numbers=1):
                     for mut in mutations:
                         muts[r].add(dna[:i]+mut+dna[i+1:])
     return muts[mutation_numbers]
+
+def primers2mips(fwd,rev):
+    Mly1_site="GAGTC"
+    Mly1_F='TATGAGTGTGGAGTCGTTGC'
+    Mly1_R='GCTTCCTGATGAGTCCGATG'
+    OM6_spacer="NNNAGATCGGAAGAGCACACGTCTGAACTCTTTCCCTACACGACGCTCTTCCGATCTNNN"
+    raw=Mly1_F+rc(fwd)+OM6_spacer+rev+rc(Mly1_R)
+    if (Mly1_site in raw[15:-15]) or (rc(Mly1_site) in raw[15:-15]):
+        output='MlyI in amplicon, not suitable for MlyI mips, try earI adaptors'
+    else:
+        output = raw
+    return (output)
