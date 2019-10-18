@@ -73,3 +73,14 @@ def primers2mips(fwd,rev):
         return 'MlyI in amplicon, not suitable for MlyI mips, try earI adaptors'
     else:
         return raw
+
+def primers2ssmips(fwd,rev):
+    # convert primers to mips
+    HTspacer="AGATCGGAAGAGCACACGTCTGAACTCTTTCCCTACACGACGCTCTTCCGATCT"
+    raw='/5Phos/'+rc(fwd)+OM6_spacer+rev
+    return raw
+
+def yolist(start,stop,step=1):
+    # adjust the stop side to include
+    stop = stop + 1
+    return list(range(start,stop,step))
