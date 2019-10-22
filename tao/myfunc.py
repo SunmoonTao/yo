@@ -84,3 +84,40 @@ def yolist(start,stop,step=1):
     # adjust the stop side to include
     stop = stop + 1
     return list(range(start,stop,step))
+
+
+def string_diversity(list_of_string):
+    cycs = dict()
+
+    for index in range(len(list_of_string[0])):
+        cycle_score = 0
+        x = []
+        for s in list_of_string:
+            x.append(s[index])
+        pA = x.count('A') / float(len(x))
+        pC = x.count('C') / float(len(x))
+        pRed = pA + pC
+        pT = x.count('T') / float(len(x))
+        pG = x.count('G') / float(len(x))
+        pGreen = pT + pG
+        if 0.1 <= pA <= 0.3 and 0.1 <= pC <= 0.3 and 0.1 <= pT <= 0.3 and 0.1 <= pG <= 0.3:
+            cycle_score = 100
+        elif 0.25 <= pA + pC <= 0.75:
+            cycle_score = 75
+        elif pA + pC == 1 or pA + pC == 0:
+            cycle_score = 0
+        else:
+            cycle_score = 50
+
+        cycs[index] = cycle_score
+    return cycs
+
+
+def breaknumbers(n, max_e=x):
+    if n <= max_e * 2:
+        a = int(n / 2)
+        b = n - a
+
+        return (a, b)
+    else:
+        print('not possible')
