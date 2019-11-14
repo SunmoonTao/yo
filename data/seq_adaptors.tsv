@@ -4,3 +4,33 @@ ht_read1_P5  ACACTCTTTCCCTACACGACGCTCTTCCGATCT
 ht_read2_P7  GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT
 illumina_p5 AATGATACGGCGACCACCGAGATCTACAC
 illumina_p7 CAAGCAGAAGACGGCATACGAGAT
+Barcoded RT primer: 5'- /Phos/CAGAGC[8-bp UMI][10-bp RT barcode]TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTVN -3'
+
+* There are 384 barcoded RT primers, click here to see the full sequence.
+
+Barcoded hairpin adapters: 5'- GCTCTG[9-bp or 10-bp barcode A]/ddU/ACGACGCTCTTCCGATCT[reverse complement of barcode A] -3'
+
+* There are 384 barcoded hairpin adapters, click here to see the full sequence. The structure of these adapters is like this:
+
+
+         CTTCCGATCT
+        /          NNNNNNNNNN -3'
+        |          NNNNNNNNNNGTCTCG -5'
+        TCGCAGCAddU
+Nextera Tn5 binding site (19-bp Mosaic End (ME)): 5'- AGATGTGTATAAGAGACAG -3'
+
+Nextera N7xx primer entry point (s7): 5'- GTCTCGTGGGCTCGG -3'
+
+PCR P5 Primer: 5'- AATGATACGGCGACCACCGAGATCTACAC[i5]ACACTCTTTCCCTACACGACGCTCTTCCGATCT -3'
+
+* There are 96 barcoded P5 primers, click here to see the full sequence.
+
+PCR P7 Primer: 5'- CAAGCAGAAGACGGCATACGAGAT[i7]GTCTCGTGGGCTCGG -3'
+
+* There are 96 barcoded P7 primers, click here to see the full sequence.
+
+Read 1 sequencing primer: 5'- ACACTCTTTCCCTACACGACGCTCTTCCGATCT -3'
+
+Index 1 sequencing primer (i7): 5'- CTGTCTCTTATACACATCTCCGAGCCCACGAGAC -3'
+
+Read 2 seuquencing primer: 5'- GTCTCGTGGGCTCGGAGATGTGTATAAGAGACAG -3'
