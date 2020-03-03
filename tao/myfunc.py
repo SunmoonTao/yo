@@ -135,4 +135,25 @@ def Fibonacci(n):
     else:
         return Fibonacci(n - 1) + Fibonacci(n - 2)
 
-
+def stagger_generator(primer,number_of_staggers,score_threshold):
+    count=1
+    while count>0:
+        if number_of_staggers < 4:
+            print ('more staggers needed')
+            break
+        else:
+            combo=list()
+            combo.append(primer)
+            prefixes=list()
+            for prefix in [str(RandomDNA(i)) for i in yolist(1,number_of_staggers)]:
+                combo.append(prefix+primer)
+                prefixes.append(prefix)
+            score=string_diversity(combo)
+            if list(score.values()).count(0)==0 and sum(score.values())/len(primer)>score_threshold:
+                print (sum(score.values()),sum(score.values())/len(primer))
+                print (score.values())
+    #             print (prefixes)
+#                 for i in combo:
+#                     print (i)
+                count=0
+                return prefixes
