@@ -1,7 +1,9 @@
 from Bio.Seq import Seq
 import pandas as pd
 from collections import defaultdict
-
+import sys
+sys.path.append('/Users/ltao/PycharmProjects/yo/tao')
+from myprimer import RandomDNA, rc
 
 def rc(str_seq):
     return str(Seq(str_seq).reverse_complement())
