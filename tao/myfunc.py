@@ -72,7 +72,8 @@ def primers2mips(fwd,rev):
     OM6_spacer="NNNAGATCGGAAGAGCACACGTCTGAACTCTTTCCCTACACGACGCTCTTCCGATCTNNN"
     raw=Mly1_F+rc(fwd)+OM6_spacer+rev+rc(Mly1_R)
     if (Mly1_site in raw[15:-15]) or (rc(Mly1_site) in raw[15:-15]):
-        return 'MlyI in amplicon, not suitable for MlyI mips, try earI adaptors'
+        raw = '/5Phos/' + rc(fwd) + OM6_spacer + rev
+        #return 'MlyI in amplicon, not suitable for MlyI mips, try earI adaptors'
     else:
         return raw
 
