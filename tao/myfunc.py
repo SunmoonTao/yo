@@ -70,9 +70,10 @@ def primers2mips(fwd,rev):
     Mly1_F='TATGAGTGTGGAGTCGTTGC'
     Mly1_R='GCTTCCTGATGAGTCCGATG'
     OM6_spacer="NNNAGATCGGAAGAGCACACGTCTGAACTCTTTCCCTACACGACGCTCTTCCGATCTNNN"
+    OM6_spacer_woN = "AGATCGGAAGAGCACACGTCTGAACTCTTTCCCTACACGACGCTCTTCCGATCT"
     raw=Mly1_F+rc(fwd)+OM6_spacer+rev+rc(Mly1_R)
     if (Mly1_site in raw[15:-15]) or (rc(Mly1_site) in raw[15:-15]):
-        ssmips = '/5Phos/' + rc(fwd) + OM6_spacer + rev
+        ssmips = '/5Phos/' + rc(fwd) + OM6_spacer_woN + rev
         return ssmips
         #return 'MlyI in amplicon, not suitable for MlyI mips, try earI adaptors'
     else:
@@ -80,8 +81,8 @@ def primers2mips(fwd,rev):
 
 def primers2ssmips(fwd,rev):
     # convert primers to mips
-    HTspacer="AGATCGGAAGAGCACACGTCTGAACTCTTTCCCTACACGACGCTCTTCCGATCT"
-    raw='/5Phos/'+rc(fwd)+OM6_spacer+rev
+    OM6_spacer_woN="AGATCGGAAGAGCACACGTCTGAACTCTTTCCCTACACGACGCTCTTCCGATCT"
+    raw='/5Phos/'+rc(fwd)+OM6_spacer_woN+rev
     return raw
 
 def yolist(start,stop,step=1):
