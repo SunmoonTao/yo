@@ -28,7 +28,7 @@ else:
 
 bases = ["A","T","G","C"];
 
-def addWithinDistanceRecur(edHash, curOligo, nEdits, curName):
+def addWithinDistanceRecur(edHash, curOligo, nEdits, curName): h
 	global bases;
 	if nEdits>0:
 		for i in range(0, len(curOligo)):
