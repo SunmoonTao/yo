@@ -162,3 +162,9 @@ def stagger_generator(primer,number_of_staggers,score_threshold):
 #                     print (i)
                 count=0
                 return prefixes
+
+def current_time_label():
+    import datetime
+    ct=datetime.datetime.now()
+    ts=ct.timestamp()
+    return str(ct.date())+"-"+ str(ts)
