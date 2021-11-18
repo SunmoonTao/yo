@@ -3,7 +3,7 @@ from Bio.SeqUtils import MeltingTemp as mt
 from Bio.SeqUtils import GC
 from Bio import SeqIO
 import primer3
-from Bio.Alphabet import generic_dna,generic_rna,generic_protein
+# from Bio.Alphabet import generic_dna,generic_rna,generic_protein
 # from Bio.Blast import NCBIWWW
 import csv
 # from pydna.dseq import Dseq
