@@ -14,7 +14,7 @@ import random
 
 def RandomDNA(length):
     str_dna= ''.join(random.choice("A"*25+"C"*25+"G"*25+"T"*25) for _ in range(length))
-    seq = Seq(str_dna, generic_dna)
+    seq = Seq(str_dna)
     return seq
     
 def RandomDNA_without_site(length, site_to_ruleout):
@@ -177,12 +177,12 @@ constant_adaptor_f = 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'  # 5->3
 
 
 
-om6_spacer = 'NNN' + str(Seq(constant_adaptor_f[-27:], generic_dna).reverse_complement()) + constant_adaptor_r[-27:] +'NNN'
+om6_spacer = 'NNN' + str(Seq(constant_adaptor_f[-27:]).reverse_complement()) + constant_adaptor_r[-27:] +'NNN'
 
 
 
 
-umi_12_spacer = 'NNNNNN' + str(Seq(constant_adaptor_f[-26:], generic_dna).reverse_complement()) + constant_adaptor_r[-26:] +'NNNNNN'
+umi_12_spacer = 'NNNNNN' + str(Seq(constant_adaptor_f[-26:]).reverse_complement()) + constant_adaptor_r[-26:] +'NNNNNN'
 
 
 
@@ -280,14 +280,14 @@ def om_parts(fw_watson,rev_watson,Mly1_F,Mly1_R,constant_adaptor_f,constant_adap
 
 
 
-ill_sequence_spacer ='NNNNNN' + str(Seq(constant_adaptor_f, generic_dna).reverse_complement()) + constant_adaptor_r +'NNNNNN'
+ill_sequence_spacer ='NNNNNN' + str(Seq(constant_adaptor_f).reverse_complement()) + constant_adaptor_r +'NNNNNN'
 
 
 # illumina_p5 = "AATGATACGGCGACCACCGAGATCTACAC[UMI][i5]ACACTCTTTCCCTACACGACGCTCTTCCGATCT"
 # illumina_p7 = "CAAGCAGAAGACGGCATACGAGAT[UMI][i7]GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT"
 illumina_p5 = "AATGATACGGCGACCACCGAGATCTACAC"+'N'*8 +'AAAAAAAA'+"ACACTCTTTCCCTACACGACGCTCTTCCGATCT"
 illumina_p7 = "CAAGCAGAAGACGGCATACGAGAT"+'N'*8 +'TTTTTTTT'+"GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT"
-whole_ill_spacer =str(Seq(illumina_p5, generic_dna).reverse_complement()) + illumina_p7
+whole_ill_spacer =str(Seq(illumina_p5).reverse_complement()) + illumina_p7
 
 
 
