@@ -1,0 +1,6 @@
+
+scp ~/.ssh/id_rsa_clineage_admin taol9@rosalind:/gstore/home/taol9/.ssh/
+
+nohup scp -r -i ~/.ssh/id_rsa_clineage_admin /gstore/project/paneldesign/fastqs/ clineage_admin@10.178.27.222:/data/share/
+
+nohup scp -r -i ~/.ssh/id_rsa_clineage_admin /gstore/project/paneldesign/fastqs/ clineage_admin@10.178.27.222:/data/share/

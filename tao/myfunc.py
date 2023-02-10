@@ -3,7 +3,10 @@ import pandas as pd
 from collections import defaultdict
 import sys
 sys.path.append('/Users/ltao/PycharmProjects/yo/tao')
-from myprimer import RandomDNA, rc
+
+
+def circle_access(string, i):
+    return string[i % len(string)]
 
 def rc(str_seq):
     return str(Seq(str_seq).reverse_complement())
@@ -14,6 +17,9 @@ def xls2dic(file_path,sheetname):
     idh4x=idh4x.to_dict(orient="index")
     return idh4x
 
+def dict2xlsx(dic,path):
+    df=pd.DataFrame.from_dict(dic, orient='index')
+    df.to_excel(path)
 
 def replace_str_index(text,index=0,replacement=''):
     return text[:index]+replacement+text[index+1:] 
@@ -81,8 +87,11 @@ def primers2mips(fwd,rev):
 
 def primers2ssmips(fwd,rev):
     # convert primers to mips
-    OM6_spacer_woN="AGATCGGAAGAGCACACGTCTGAACTCTTTCCCTACACGACGCTCTTCCGATCT"
-    raw='/5Phos/'+rc(fwd)+OM6_spacer_woN+rev
+#    OM6_spacer_woN="AGATCGGAAGAGCACACGTCTGAACTCTTTCCCTACACGACGCTCTTCCGATCT"
+    OM6_spacer="NNNAGATCGGAAGAGCACACGTCTGAACTCTTTCCCTACACGACGCTCTTCCGATCTNNN"
+    raw='/5Phos/'+rc(fwd)+OM6_spacer+rev
+
+#    raw='/5Phos/'+rc(fwd)+OM6_spacer_woN+rev
     return raw
 
 def yolist(start,stop,step=1):

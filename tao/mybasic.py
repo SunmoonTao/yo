@@ -2,7 +2,9 @@ from Bio.Seq import Seq
 from Bio.SeqUtils import MeltingTemp as mt
 from Bio.SeqUtils import GC
 from Bio import SeqIO
-import primer3
+from itertools import combinations_with_replacement
+
+# import primer3
 # from Bio.Alphabet import generic_dna,generic_rna,generic_protein
 # from Bio.Blast import NCBIWWW
 import csv
@@ -10,27 +12,6 @@ import csv
 from Bio import pairwise2
 from Bio.pairwise2 import format_alignment
 import random
-def rc(seq):
-    return( str(Seq(seq).reverse_complement()))
-    
-Mly1_R_w='GCTTCCTGATGAGTCCGATG'
-Mly1_F_w='GCAACGACTCCACACTCATA'
-
-HT_R1SP_w ='ACACTCTTTCCCTACACGACGCTCTTCCGATCT'
-HT_R2SP_w ='AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
-
-p5_w = "AATGATACGGCGACCACCGAGATCTACAC"
-p7_w = 'ATCTCGTATGCCGTCTTCTGCTTG'
-
-
-Mly1_F_c= rc(Mly1_F_w)
-Mly1_R_c=rc(Mly1_R_w)
-
-HT_R2SP_c =  rc(HT_R2SP_w) 
-HT_R1SP_c =rc(HT_R1SP_w)
-
-p7_c = rc(p7_w)
-p5_c = rc(p5_w)
 
 
 def RandomDNA(length):
@@ -56,8 +37,8 @@ def RandomDNA_without_sites(length, sites_list_to_ruleout=[]):
             return candi
 
 
-
-
+def rc(seq):
+    return( str(Seq(seq).reverse_complement()))
 
 # Return GC percentage*100
 def gc_counter(mly_primer):
@@ -237,7 +218,7 @@ rc_digestion_site=str(Seq(digestion_site).reverse_complement())
 
 def digestion_sites_counter (seq, digestion_site):
     rc_digestion_site=str(Seq(digestion_site).reverse_complement())
-    return (seq.count(digestion_site) + seq.count(rc_digestion_site))
+    print (seq.count(digestion_site) + seq.count(rc_digestion_site))
 
 
 
@@ -380,4 +361,22 @@ def break2shorts(input_long_oligo, overlap=30):
     Part_B= crick[::-1][l-overlap:][::-1]    
     return (part_A,len(part_A),Part_B,len(Part_B))
 
-# 
+# generate str unit
+def strunits(str_unit_len=[1,2,3,4]):
+    from itertools import combinations_with_replacement, product
+    candi = []
+    for i in str_unit_len:
+        for cb in combinations_with_replacement('ATCG', i):
+            tmp = [''.join(x) for x in set(product(cb, repeat=len(cb)))]
+            candi = candi + tmp
+    candi=list((set(candi)))
+    candi=sorted(candi, key=len)
+    uniuni=candi.copy()
+    maxlen=len(candi[-1])
+    minlen=len(candi[0])
+    for i in candi:
+        if len(i)<maxlen:
+            for j in range(2, maxlen+1):
+                if j*i in uniuni:
+                    uniuni.remove(j*i)
+    return uniuni
