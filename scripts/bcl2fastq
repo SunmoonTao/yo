@@ -1,0 +1,11 @@
+#! /bin/bash
+ml bcl2fastq
+RUNFOLDER=/gnet/ais1/p01/shares/CTG/SeqData/MiSeq/runs/230207_M07962_0021_000000000-KTK7M
+OUTPUTFOLDER=/gstore/home/taol9/repeats_ultima/ele/
+echo $RUNFOLDER
+echo $OUTPUTFOLDER
+echo ${RUNFOLDER##*/}
+bcl2fastq --runfolder-dir $RUNFOLDER \
+--minimum-trimmed-read-length 50 \
+--output-dir   ./$OUTPUTFOLDER/${$RUNFOLDER##*/}/fastqs/  \
+--sample-sheet ./$OUTPUTFOLDER/${RUNFOLDER##*/}/samplesheet.csv
