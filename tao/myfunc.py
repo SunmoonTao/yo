@@ -6,6 +6,7 @@ from Bio.SeqUtils import MeltingTemp as mt
 from Bio.SeqUtils import GC
 from Bio import SeqIO
 from itertools import combinations_with_replacement
+import barcode
 
 # import primer3
 # from Bio.Alphabet import generic_dna,generic_rna,generic_protein
@@ -932,3 +933,12 @@ def break2shorts(input_long_oligo, overlap=30):
     return (part_A,len(part_A),Part_B,len(Part_B))
 
 #
+def bgen(length,maxstretch=3,distance=3,):
+    candi=[]
+    for i in range(30000):
+        x=str(RandomDNA(length))
+        if 45<GC(x)<55:
+            candi.append(x)
+    candi=barcode.filter_stretches(candi, maxstretch)
+    candi=barcode.filter_distance(candi, distance)
+    return candi
