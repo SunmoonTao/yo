@@ -1,0 +1,20 @@
+celllinename,tissue,tissue_mutation
+CL-40,Colon,Colon12G/D
+COLO 678,Colon,Colon12G/D
+GP2d,Colon,Colon12G/D
+GP5d,Colon,Colon12G/D
+HCC1033,Colon,Colon12G/D
+HCC1445,Lung,Lung12G/V
+HCC149,Lung,Lung12G/V
+HCC2374,Lung,Lung12G/V
+HCC4059,Lung,Lung12G/V
+HM7,Colon,Colon12G/D
+LCLC-97TM1,Lung,Lung12G/V
+LS-174T,Colon,Colon12G/D
+LS-180,Colon,Colon12G/D
+MT-3,Colon,Colon12G/D
+NCI-H2444,Lung,Lung12G/V
+NCI-H441,Lung,Lung12G/V
+NCI-H727,Lung,Lung12G/V
+SHP-77,Lung,Lung12G/V
+SW 900,Lung,Lung12G/V

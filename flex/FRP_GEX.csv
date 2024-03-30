@@ -1,0 +1,13 @@
+[gene-expression]
+reference,/gne/data/dnaseq/analysis/aplle/genomes/refdata-gex-GRCh38-2020-A
+probe-set,/gne/data/dnaseq/analysis/labstaff/lauj22/NGS5110_ddPadlock/Chromium_Human_Transcriptome_Probe_Set_v1.0.1_GRCh38-2020-A.csv
+
+
+[libraries]
+fastq_id,fastqs,feature_types
+LIB6221272_SAM24439396,/gne/data/dnaseq/processed_runs/R9922/results/,Gene Expression
+
+[samples]
+sample_id,probe_barcode_ids,description
+10Xprobes,BC001,10Xprobes
+Mutationprobes,BC013,Mutationprobes
